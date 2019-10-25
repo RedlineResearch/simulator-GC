@@ -450,9 +450,10 @@ void MemoryMgr::print_status()
 unsigned long int MemoryMgr::get_num_GC_attempts( bool printflag )
 {
     // For every region that we manage:
-
     //      get the number of GC attempts per region.
     //      if printflag: print
+    // TODO.
+    return 0;
 }
 
 

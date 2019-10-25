@@ -222,6 +222,7 @@ public:
                                            int numgroups ) {
         // DO NOTHING.
         // There's no special gropu in the BASIC MemoryMgr.
+        return 1;
     }
 
     // Get number of regions

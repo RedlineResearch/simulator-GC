@@ -458,7 +458,7 @@ class Object
         void setDiedAtEndFlag() { m_diedAtEnd = true; m_reason = END_OF_PROGRAM_REASON; }
         void unsetDiedAtEndFlag() { m_diedAtEnd = false; }
         void setHeapReason( unsigned int t ) { m_reason = HEAP; m_last_action_time = t; }
-        Reason setReason( Reason r, unsigned int t ) { m_reason = r; m_last_action_time = t; }
+        Reason setReason( Reason r, unsigned int t ) { m_reason = r; m_last_action_time = t; return r; }
         Reason getReason() const { return m_reason; }
         unsigned int getLastActionTime() const { return m_last_action_time; }
         // Returns whether last update to this object was NULL.

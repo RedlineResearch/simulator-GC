@@ -26,8 +26,11 @@ using namespace std;
 class Object;
 class CCNode;
 
+// TODO: Document
 typedef std::map< string, std::vector< Summary * > > GroupSum_t;
+// TODO: Document
 typedef std::map< string, Summary * > TypeTotalSum_t;
+// TODO: Document
 typedef std::map< unsigned int, Summary * > SizeSum_t;
 
 // ----------------------------------------------------------------------

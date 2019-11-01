@@ -38,24 +38,6 @@ typedef unsigned int EdgeId_t;
 // A pair of edge Ids
 typedef std::pair< ObjectId_t, ObjectId_t > ObjectIdPair_t;
 
-// TODO DELETE: // If doing sets of things that aren't primitives, then you need
-// TODO DELETE: // to supply a comparator class to the set definition.
-// TODO DELETE: struct _compclass {
-// TODO DELETE:     bool operator() ( const ObjectIdPair_t &lhs,
-// TODO DELETE:                       const ObjectIdPair_t &rhs ) const {
-// TODO DELETE:         if (lhs.first == rhs.first) {
-// TODO DELETE:             return lhs.second < rhs.second;
-// TODO DELETE:         } else {
-// TODO DELETE:             return lhs.first < rhs.first;
-// TODO DELETE:         }
-// TODO DELETE:     }
-// TODO DELETE: };
-
-// A set of Edge pairs
-// TODO: TO DELETE
-// Using a set with a pair wasn't working and I don't have time to 
-// debug. So I'm just going to use a map to a set.
-// TODO: DELETE typedef std::set< ObjectIdPair_t, _compclass > ObjectIdPairSet_t;
 // A map:
 // key: edge id
 //     -> val: edge id set
@@ -164,12 +146,6 @@ private:
 
 };
 
-// TODO DELETE
-// enum class ManagerType {
-//     Simple,
-//     Deferred,
-//     Undefined
-// };
 
 class MemoryMgr
 {
@@ -212,6 +188,9 @@ public:
     ~MemoryMgr() {
     }
 
+    //--------------------------------------------------------------------------------
+    // Virtual member functions:
+    //--------------------------------------------------------------------------------
     // Initializes all the regions. This should contain all knowledge
     // of how things are laid out. Virtual so you can reimplement
     // with different layouts.
@@ -221,17 +200,9 @@ public:
     virtual bool initialize_special_group( string &group_filename,
                                            int numgroups ) {
         // DO NOTHING.
-        // There's no special gropu in the BASIC MemoryMgr.
+        // There's no special group in the BASIC MemoryMgr.
         return 1;
     }
-
-    // Get number of regions
-    int numberRegions() const { return this->m_region_map.size(); }
-
-    // TODO // Do a garbage collection
-    // TODO int do_collection();
-
-    int get_number_of_collections() const { return this->m_times_GC; }
 
 
     // Do a garbage collection only if needed.
@@ -245,13 +216,24 @@ public:
     virtual void remove_edge( ObjectId_t src, ObjectId_t oldTgtId );
     virtual void remove_object( ObjectId_t objId );
 
+    // Check if object is in live set
+    virtual bool is_in_live_set( Object *object );
+
+    // TODO // Do a garbage collection. Should be virtual?
+    // TODO int do_collection();
+
+    //--------------------------------------------------------------------------------
+    // NON-Virtual member functions:
+    //--------------------------------------------------------------------------------
     void remove_from_srcidmap( ObjectId_t src,
                                ObjectId_t oldTgtId );
     void remove_from_tgtidmap( ObjectId_t src,
                                ObjectId_t tgtId );
 
-    // Check if object is in live set
-    virtual bool is_in_live_set( Object *object );
+    // Get number of regions
+    int numberRegions() const { return this->m_region_map.size(); }
+
+    int get_number_of_collections() const { return this->m_times_GC; }
 
     // Return the live size total in bytes
     unsigned long int getLiveSize() const { return this->m_liveSize; }
@@ -264,7 +246,7 @@ public:
     // Debug functions
     //
     // Get the GC history
-    deque<GCRecord_t> get_GC_history();
+    virtual deque<GCRecord_t> get_GC_history();
     unsigned long int get_num_GC_attempts( bool printflag );
 
     // - TODO Documentation

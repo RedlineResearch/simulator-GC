@@ -1,7 +1,7 @@
 //==============================================================================
 // MemoryMgrDefVer2
 //==============================================================================
-#include "heap.h"
+#include "heap.hpp"
 #include "memorymgrdefver2.hpp"
 
 string MemoryMgrDefVer2::SPECIAL_VER2= "SPECIAL_VER2";

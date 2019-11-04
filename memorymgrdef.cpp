@@ -1,7 +1,7 @@
 //==============================================================================
 // MemoryMgrDef
 //==============================================================================
-#include "heap.h"
+#include "heap.hpp"
 #include "memorymgrdef.hpp"
 
 bool MemoryMgr::debug = false;

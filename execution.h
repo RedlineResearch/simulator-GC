@@ -11,7 +11,7 @@
 #include <utility>
 
 #include "classinfo.h"
-#include "heap.h"
+#include "heap.hpp"
 
 using namespace std;
 
@@ -486,7 +486,7 @@ class ExecState
         // TODO: }
 
         // -- The assumption is that a context pair will be only a single
-        // type. See the definition for CPairType in heap.h. Possible values are
+        // type. See the definition for CPairType in heap.hpp. Possible values are
         // Call, Return, Both. (Don't use None)
         ContextTypeMap_t m_contextTypeMap;
 

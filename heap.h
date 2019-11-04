@@ -16,6 +16,7 @@
 #include "classinfo.h"
 #include "refstate.h"
 #include "memorymgr.h"
+#include "memorymgrdef.hpp"
 
 class Object;
 class Thread;

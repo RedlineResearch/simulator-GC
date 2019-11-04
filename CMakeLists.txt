@@ -11,7 +11,7 @@ EXECUTE_PROCESS( COMMAND sh ${CMAKE_SOURCE_DIR}/create-version-cpp.sh
 #-------------------------------------------------------------------------------
 # Version 1 of simulator-GC
 SET(SOURCES_SIM_GC simulator-GC.cpp execution.cpp heap.cpp classinfo.cpp tokenizer.cpp
-    version.cpp memorymgr.cpp)
+    version.cpp memorymgr.cpp memorymgrdef.cpp memorymgrdefver2.cpp)
 
 # The file(GLOB...) allows for wildcard additions if needed:
 # file(GLOB SOURCES "src/*.cpp")
@@ -25,7 +25,7 @@ ADD_EXECUTABLE(simulator-GC ${SOURCES_SIM_GC})
 #-------------------------------------------------------------------------------
 # Version 1 of simulator-GC
 SET(SOURCES_SIM_GC_VER2 simulator-GC-ver2.cpp execution.cpp heap.cpp classinfo.cpp tokenizer.cpp
-    version.cpp memorymgr.cpp)
+    version.cpp memorymgr.cpp memorymgrdef.cpp memorymgrdefver2.cpp)
 
 # The file(GLOB...) allows for wildcard additions if needed:
 # file(GLOB SOURCES "src/*.cpp")
@@ -43,7 +43,7 @@ ADD_EXECUTABLE(simulator-GC-ver2-static ${SOURCES_SIM_GC_VER2})
 #-------------------------------------------------------------------------------
 # Version 1 of simulator-GC
 SET(SOURCES_SIM_PAGC_VER1 simulator-PAGC-ver1.cpp execution.cpp heap.cpp classinfo.cpp tokenizer.cpp
-    version.cpp memorymgr.cpp)
+    version.cpp memorymgr.cpp memorymgrdef.cpp memorymgrdefver2.cpp)
 
 # Main non-static Program Aware GC simulator
 ADD_EXECUTABLE(simulator-PAGC-ver1 ${SOURCES_SIM_PAGC_VER1})

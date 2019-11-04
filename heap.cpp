@@ -1,4 +1,5 @@
 #include "heap.h"
+#include "memorymgrdef.hpp"
 
 // -- Global flags
 bool HeapState::do_refcounting = true;

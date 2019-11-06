@@ -15,12 +15,15 @@
 
 #include "classinfo.h"
 #include "refstate.h"
-#include "memorymgr.h"
-#include "memorymgrdef.hpp"
+#include "utiltypes.hpp"
+// TODO: #include "region.hpp"
+// TODO: #include "memorymgr.h"
 
 class Object;
 class Thread;
 class Edge;
+class MemoryMgr;
+class MemoryMgrDef;
 
 enum Reason {
     STACK = 1,
@@ -201,9 +204,9 @@ class HeapState
         {
             return this->m_objects.size();
         }
-        unsigned long int getLiveSize() const { return this->m_memmgr_p->getLiveSize(); }
+        unsigned long int getLiveSize() const;
         // TODO unsigned long int maxLiveSize() const { return m_maxLiveSize; }
-        unsigned long int getMaxLiveSize() const { return this->m_memmgr_p->getMaxLiveSize(); }
+        unsigned long int getMaxLiveSize() const;
         unsigned int getAllocTime() const { return m_alloc_time; }
 
         unsigned int getNumberNoDeathSites() const { return m_no_dsites_count; }
@@ -224,41 +227,17 @@ class HeapState
         KeySet_t& get_keyset() { return m_keyset; }
 
         // GC related functions
-        deque<GCRecord_t> get_GC_history()
-        {
-            return this->m_memmgr_p->get_GC_history();
-        }
-
-        int get_number_of_collections() const
-        {
-            return this->m_memmgr_p->get_number_of_collections();
-        }
-
-        unsigned int get_mark_total() const
-        {
-            return this->m_memmgr_p->get_mark_total();
-        }
-
-        unsigned int get_mark_saved() const
-        {
-            return this->m_memmgr_p->get_mark_saved();
-        }
-
+        deque<GCRecord_t> get_GC_history();
+        int get_number_of_collections() const;
+        unsigned int get_mark_total() const;
+        unsigned int get_mark_saved() const;
         // Debug
-        int get_number_edges_removed() const
-        {
-            return this->m_memmgr_p->get_number_edges_removed();
-        }
-
-        int get_number_attempts_edges_removed() const
-        {
-            return this->m_memmgr_p->get_number_attempts_edges_removed();
-        }
-
-        unsigned int get_region_edges_count() const { return this->m_memmgr_p->get_region_edges_count(); }
-        unsigned int get_in_edges_count() const { return this->m_memmgr_p->get_in_edges_count(); }
-        unsigned int get_out_edges_count() const { return this->m_memmgr_p->get_out_edges_count(); }
-        unsigned int get_nonregion_edges_count() const { return this->m_memmgr_p->get_nonregion_edges_count(); }
+        int get_number_edges_removed() const;
+        int get_number_attempts_edges_removed() const;
+        unsigned int get_region_edges_count() const;
+        unsigned int get_in_edges_count() const;
+        unsigned int get_out_edges_count() const;
+        unsigned int get_nonregion_edges_count() const;
 };
 
 enum Color {

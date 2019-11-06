@@ -1,6 +1,7 @@
 #ifndef MEMORYMGR_DEF_H
 #define MEMORYMGR_DEF_H
 
+#include "region.hpp"
 #include "memorymgr.h"
 
 class MemoryMgrDef : public MemoryMgr

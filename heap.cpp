@@ -229,6 +229,68 @@ NodeId_t HeapState::getNodeId( ObjectId_t objId, bimap< ObjectId_t, NodeId_t >& 
     }
 }
 
+unsigned long int HeapState::getLiveSize() const
+{
+    return this->m_memmgr_p->getLiveSize();
+}
+
+unsigned long int HeapState::getMaxLiveSize() const
+{ 
+    return this->m_memmgr_p->getMaxLiveSize();
+}
+
+deque<GCRecord_t> HeapState::get_GC_history()
+{
+    return this->m_memmgr_p->get_GC_history();
+}
+
+int HeapState::get_number_of_collections() const
+{
+    return this->m_memmgr_p->get_number_of_collections();
+}
+
+unsigned int HeapState::get_mark_total() const
+{
+    return this->m_memmgr_p->get_mark_total();
+}
+
+
+unsigned int HeapState::get_mark_saved() const
+{
+    return this->m_memmgr_p->get_mark_saved();
+}
+
+int HeapState::get_number_edges_removed() const
+{
+    return this->m_memmgr_p->get_number_edges_removed();
+}
+
+int HeapState::get_number_attempts_edges_removed() const
+{
+    return this->m_memmgr_p->get_number_attempts_edges_removed();
+}
+
+unsigned int HeapState::get_region_edges_count() const
+{ 
+    return this->m_memmgr_p->get_region_edges_count();
+}
+
+unsigned int HeapState::get_in_edges_count() const
+{
+    return this->m_memmgr_p->get_in_edges_count();
+}
+
+unsigned int HeapState::get_out_edges_count() const
+{
+    return this->m_memmgr_p->get_out_edges_count();
+}
+
+unsigned int HeapState::get_nonregion_edges_count() const
+{
+    return this->m_memmgr_p->get_nonregion_edges_count();
+}
+
+
 // -- Return a string with some information
 string Object::info() {
     stringstream ss;

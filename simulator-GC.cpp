@@ -14,7 +14,7 @@ using namespace std;
 #include "tokenizer.h"
 #include "classinfo.h"
 #include "execution.h"
-#include "heap.h"
+#include "heap.hpp"
 #include "refstate.h"
 #include "summary.hpp"
 #include "version.hpp"

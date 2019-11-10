@@ -14,7 +14,7 @@ using namespace std;
 #include "tokenizer.h"
 #include "classinfo.h"
 #include "execution.h"
-#include "heap.h"
+#include "heap.hpp"
 #include "refstate.h"
 #include "summary.hpp"
 #include "version.hpp"
@@ -26,8 +26,11 @@ using namespace std;
 class Object;
 class CCNode;
 
+// TODO: Document
 typedef std::map< string, std::vector< Summary * > > GroupSum_t;
+// TODO: Document
 typedef std::map< string, Summary * > TypeTotalSum_t;
+// TODO: Document
 typedef std::map< unsigned int, Summary * > SizeSum_t;
 
 // ----------------------------------------------------------------------

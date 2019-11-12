@@ -118,9 +118,6 @@ class HeapState
         MemoryMgr *m_memmgr_p;
         // Memory manager 2 -  deferred GC
         MemoryMgrDef *m_memmgrdef_p;
-        // Memory manager PAGC VERSION 1
-        // TODO TODO TODO
-        MemoryMgrDef *m_memmgr_PAGC_VER1_p;
 
         unsigned long int m_maxLiveSize; // max live size of program in bytes
         unsigned int m_alloc_time; // current alloc time
@@ -147,7 +144,6 @@ class HeapState
             : m_objects()
             , m_memmgr_p(NULL)
             , m_memmgrdef_p(NULL)
-            , m_memmgr_PAGC_VER1_p(NULL)
             , m_whereis( whereis )
             , m_keyset( keyset )
             , m_maxLiveSize(0)

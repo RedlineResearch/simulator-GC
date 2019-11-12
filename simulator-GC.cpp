@@ -261,7 +261,7 @@ void debug_GC_history( deque< GCRecord_t > &GC_history )
 int main(int argc, char* argv[])
 {
     if (argc != 5) {
-        cout << "simulator-GC VERSION 2" << endl
+        cout << "simulator-GC" << endl
              << "Usage: " << argv[0] << " <namesfile> <dgroups-csv-file> <output base name> <memsize>" << endl
              << "      git version: " <<  build_git_sha << endl
              << "      build date : " <<  build_git_time << endl;

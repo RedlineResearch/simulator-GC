@@ -24,24 +24,6 @@ ADD_EXECUTABLE(simulator-GC ${SOURCES_SIM_GC})
 
 #-------------------------------------------------------------------------------
 # Version 1 of simulator-GC
-SET(SOURCES_SIM_GC_VER2 simulator-GC-ver2.cpp execution.cpp heap.cpp classinfo.cpp tokenizer.cpp
-    version.cpp memorymgr.cpp memorymgrdef.cpp memorymgrdefver2.cpp region.cpp)
-
-# The file(GLOB...) allows for wildcard additions if needed:
-# file(GLOB SOURCES "src/*.cpp")
-
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -std=c++11 -g -Werror")
-
-# Main non-static simulator
-ADD_EXECUTABLE(simulator-GC-ver2 ${SOURCES_SIM_GC_VER2})
-
-
-# Main static simulator
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
-ADD_EXECUTABLE(simulator-GC-ver2-static ${SOURCES_SIM_GC_VER2})
-
-#-------------------------------------------------------------------------------
-# Version 1 of simulator-GC
 SET(SOURCES_SIM_PAGC_VER1 simulator-PAGC-ver1.cpp execution.cpp heap.cpp classinfo.cpp tokenizer.cpp
     version.cpp memorymgr.cpp memorymgrdef.cpp memorymgrdefver2.cpp region.cpp)
 
